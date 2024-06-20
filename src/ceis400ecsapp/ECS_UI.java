@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ceis400ecsapp;
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -55,7 +57,8 @@ public class ECS_UI extends javax.swing.JFrame {
         btnLostTool = new javax.swing.JButton();
         btnCheckOutTool = new javax.swing.JButton();
         btnCheckedInTool = new javax.swing.JButton();
-        jopRequestedInfo = new javax.swing.JOptionPane();
+        javax.swing.JScrollPane jScrollPane2 = new javax.swing.JScrollPane();
+        tbInfoMGR = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,6 +115,11 @@ public class ECS_UI extends javax.swing.JFrame {
         lblToolBox.setText("Tool Box:");
 
         btnViewTools.setText("View Tools");
+        btnViewTools.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewToolsActionPerformed(evt);
+            }
+        });
 
         btnCheckOut.setText("Check out");
         btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +166,7 @@ public class ECS_UI extends javax.swing.JFrame {
                     .addComponent(lblToolBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(280, Short.MAX_VALUE))
         );
 
         tabECS.addTab("Tech", pnlTech);
@@ -171,6 +179,11 @@ public class ECS_UI extends javax.swing.JFrame {
         btnTerminateEmp.setText("Terminate");
 
         btnViewEmp.setText("View");
+        btnViewEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewEmpActionPerformed(evt);
+            }
+        });
 
         lblOrders.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblOrders.setText("Orders");
@@ -210,6 +223,16 @@ public class ECS_UI extends javax.swing.JFrame {
 
         btnCheckedInTool.setText("Checked in");
 
+        tbInfoMGR.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "id", "firstName", "lastName", "empRole"
+            }
+        ));
+        jScrollPane2.setViewportView(tbInfoMGR);
+
         javax.swing.GroupLayout pnlMgrLayout = new javax.swing.GroupLayout(pnlMgr);
         pnlMgr.setLayout(pnlMgrLayout);
         pnlMgrLayout.setHorizontalGroup(
@@ -245,9 +268,9 @@ public class ECS_UI extends javax.swing.JFrame {
                             .addComponent(btnCheckedInTool)
                             .addComponent(btnOrderStatus)
                             .addComponent(btnViewEmp)))
-                    .addGroup(pnlMgrLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMgrLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jopRequestedInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane2)))
                 .addContainerGap())
         );
         pnlMgrLayout.setVerticalGroup(
@@ -272,8 +295,8 @@ public class ECS_UI extends javax.swing.JFrame {
                     .addComponent(btnCheckOutTool, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCheckedInTool, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jopRequestedInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabECS.addTab("Manager", pnlMgr);
@@ -292,7 +315,7 @@ public class ECS_UI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tabECS)
-                .addContainerGap())
+                .addGap(20, 20, 20))
         );
 
         tabECS.getAccessibleContext().setAccessibleParent(tabECS);
@@ -329,6 +352,15 @@ public class ECS_UI extends javax.swing.JFrame {
         // mgr screen
         tabECS.setSelectedIndex(2);
     }//GEN-LAST:event_btnMgrActionPerformed
+
+    private void btnViewToolsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewToolsActionPerformed
+        // ADD CODE FOR ACCESS TO TABLE
+    }//GEN-LAST:event_btnViewToolsActionPerformed
+
+    private void btnViewEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewEmpActionPerformed
+        // Connect to DB
+        display();
+    }//GEN-LAST:event_btnViewEmpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -381,12 +413,47 @@ public class ECS_UI extends javax.swing.JFrame {
     javax.swing.JButton btnViewOrder;
     javax.swing.JButton btnViewTools;
     javax.swing.JLabel jLabel1;
-    javax.swing.JOptionPane jopRequestedInfo;
     javax.swing.JLabel lblEmp;
     javax.swing.JLabel lblOrders;
     javax.swing.JLabel lblToolBox;
     javax.swing.JLabel lblTools;
     javax.swing.JTabbedPane tabECS;
+    javax.swing.JTable tbInfoMGR;
     javax.swing.JTextArea txaEmpInfo;
     // End of variables declaration//GEN-END:variables
+
+  
+    private Employee display(){
+        Connection con = null;
+        PreparedStatement p = null;
+        ResultSet rs = null;
+            
+        con = DBConnect.DBConnect();
+        try{
+            String sql = "SELECT * FROM employee";
+            p = con.prepareStatement(sql);
+            rs = p.executeQuery();
+            
+            //tfInfoMGR.setText("id\tfirstName\tlastName\tempRole");
+            
+            while(rs.next()){
+                int id = rs.getInt("id");
+                String firstName = rs.getString("firstName");
+                String lastName = rs.getString("lastName");
+                String empRole = rs.getString("empRole");
+               // tfInfoMGR.setText(id + "\t" + firstName + "\t" + lastName + "\t" + empRole);
+               
+               String tbData[] = {Integer.toString(id), firstName, lastName, empRole};
+               
+               DefaultTableModel tblModel = (DefaultTableModel)tbInfoMGR.getModel();
+               
+               tblModel.addRow(tbData);
+            }   
+        }
+        catch (SQLException e){
+           // tfInfoMGR.setText("Error! Try again.");
+        }
+        
+        return null;
+    }
 }
