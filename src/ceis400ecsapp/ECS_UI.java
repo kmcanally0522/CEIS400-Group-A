@@ -43,7 +43,7 @@ public class ECS_UI extends javax.swing.JFrame {
         btnCheckOut = new javax.swing.JButton();
         btnCheckIn = new javax.swing.JButton();
         javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
-        txaEmpInfo = new javax.swing.JTextArea();
+        tbEmpLists = new javax.swing.JTable();
         javax.swing.JPanel pnlMgr = new javax.swing.JPanel();
         lblEmp = new javax.swing.JLabel();
         btnCreateEmp = new javax.swing.JButton();
@@ -95,7 +95,7 @@ public class ECS_UI extends javax.swing.JFrame {
             .addGroup(pnlLogInLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         pnlLogInLayout.setVerticalGroup(
             pnlLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,49 +130,50 @@ public class ECS_UI extends javax.swing.JFrame {
 
         btnCheckIn.setText("Check in");
 
-        txaEmpInfo.setColumns(20);
-        txaEmpInfo.setRows(5);
-        jScrollPane1.setViewportView(txaEmpInfo);
+        tbEmpLists.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "", "", "", ""
+            }
+        ));
+        jScrollPane1.setViewportView(tbEmpLists);
 
         javax.swing.GroupLayout pnlTechLayout = new javax.swing.GroupLayout(pnlTech);
         pnlTech.setLayout(pnlTechLayout);
         pnlTechLayout.setHorizontalGroup(
             pnlTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTechLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(pnlTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlTechLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(16, Short.MAX_VALUE))
-                    .addGroup(pnlTechLayout.createSequentialGroup()
-                        .addComponent(lblToolBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)
-                        .addComponent(btnViewTools, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(105, 105, 105)
-                        .addComponent(btnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))))
+                .addContainerGap()
+                .addComponent(lblToolBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(btnViewTools, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118)
+                .addComponent(btnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addComponent(btnCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
+            .addComponent(jScrollPane1)
         );
         pnlTechLayout.setVerticalGroup(
             pnlTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTechLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(pnlTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnViewTools, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblToolBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addGroup(pnlTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblToolBox, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnViewTools, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
 
         tabECS.addTab("Tech", pnlTech);
 
         lblEmp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblEmp.setText("Employee");
+        lblEmp.setText("Employee:");
 
         btnCreateEmp.setText("Create");
 
@@ -186,7 +187,7 @@ public class ECS_UI extends javax.swing.JFrame {
         });
 
         lblOrders.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblOrders.setText("Orders");
+        lblOrders.setText("Orders:");
 
         btnViewOrder.setText("View Order");
         btnViewOrder.addActionListener(new java.awt.event.ActionListener() {
@@ -205,7 +206,7 @@ public class ECS_UI extends javax.swing.JFrame {
         btnOrderStatus.setText("Order Status");
 
         lblTools.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTools.setText("Tools");
+        lblTools.setText("Tools:");
 
         btnLostTool.setText("Lost");
         btnLostTool.addActionListener(new java.awt.event.ActionListener() {
@@ -228,7 +229,7 @@ public class ECS_UI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "firstName", "lastName", "empRole"
+                "", "", "", ""
             }
         ));
         jScrollPane2.setViewportView(tbInfoMGR);
@@ -254,7 +255,7 @@ public class ECS_UI extends javax.swing.JFrame {
                                 .addComponent(lblTools, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(125, 125, 125)
                                 .addComponent(btnLostTool)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                         .addGroup(pnlMgrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMgrLayout.createSequentialGroup()
                                 .addGroup(pnlMgrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,16 +307,12 @@ public class ECS_UI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tabECS)
-                .addContainerGap())
+                .addComponent(tabECS, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tabECS)
-                .addGap(20, 20, 20))
+            .addComponent(tabECS)
         );
 
         tabECS.getAccessibleContext().setAccessibleParent(tabECS);
@@ -354,11 +351,12 @@ public class ECS_UI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMgrActionPerformed
 
     private void btnViewToolsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewToolsActionPerformed
-        // ADD CODE FOR ACCESS TO TABLE
+        // Display tool inventory
+        inventory();
     }//GEN-LAST:event_btnViewToolsActionPerformed
 
     private void btnViewEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewEmpActionPerformed
-        // Connect to DB
+        // Show employee list
         display();
     }//GEN-LAST:event_btnViewEmpActionPerformed
 
@@ -418,8 +416,8 @@ public class ECS_UI extends javax.swing.JFrame {
     javax.swing.JLabel lblToolBox;
     javax.swing.JLabel lblTools;
     javax.swing.JTabbedPane tabECS;
+    javax.swing.JTable tbEmpLists;
     javax.swing.JTable tbInfoMGR;
-    javax.swing.JTextArea txaEmpInfo;
     // End of variables declaration//GEN-END:variables
 
   
@@ -434,24 +432,58 @@ public class ECS_UI extends javax.swing.JFrame {
             p = con.prepareStatement(sql);
             rs = p.executeQuery();
             
-            //tfInfoMGR.setText("id\tfirstName\tlastName\tempRole");
+            
             
             while(rs.next()){
                 int id = rs.getInt("id");
                 String firstName = rs.getString("firstName");
                 String lastName = rs.getString("lastName");
                 String empRole = rs.getString("empRole");
-               // tfInfoMGR.setText(id + "\t" + firstName + "\t" + lastName + "\t" + empRole);
+
+
+                String tbData[] = {Integer.toString(id), firstName, lastName, empRole};
+                            
+                DefaultTableModel tblModel = (DefaultTableModel)tbInfoMGR.getModel();
                
-               String tbData[] = {Integer.toString(id), firstName, lastName, empRole};
+                tblModel.addRow(tbData);
+            }   
+        }
+        catch (SQLException e){
+
+        }
+        
+        return null;
+    }
+    
+    private Tool inventory(){
+        Connection con = null;
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        
+        con = DBConnect.DBConnect();
+        try{
+            String sql = "SELECT * FROM tool";
+            p = con.prepareStatement(sql);
+            rs = p.executeQuery();
+            
+            
+            
+            while(rs.next()){
+                int toolId = rs.getInt("toolId");
+                String tName = rs.getString("tName");
+                String tType = rs.getString("tType");
+                String tStatus = rs.getString("tStatus");
                
-               DefaultTableModel tblModel = (DefaultTableModel)tbInfoMGR.getModel();
+               
+               String tbData[] = {Integer.toString(toolId), tName, tType, tStatus};
+               
+               DefaultTableModel tblModel = (DefaultTableModel)tbEmpLists.getModel();
                
                tblModel.addRow(tbData);
             }   
         }
         catch (SQLException e){
-           // tfInfoMGR.setText("Error! Try again.");
+
         }
         
         return null;
