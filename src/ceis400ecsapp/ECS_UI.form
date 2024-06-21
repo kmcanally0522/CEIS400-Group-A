@@ -213,6 +213,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Check in"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCheckInActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
               </AuxValues>
@@ -228,10 +231,10 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="0">
-                        <Column editable="true" title="" type="java.lang.Object"/>
-                        <Column editable="true" title="" type="java.lang.Object"/>
-                        <Column editable="true" title="" type="java.lang.Object"/>
-                        <Column editable="true" title="" type="java.lang.Object"/>
+                        <Column editable="true" title="Tool Id" type="java.lang.Object"/>
+                        <Column editable="true" title="Tool Name" type="java.lang.Object"/>
+                        <Column editable="true" title="Tool Type" type="java.lang.Object"/>
+                        <Column editable="true" title="Tool Status" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
@@ -353,6 +356,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Create"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateEmpActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
               </AuxValues>
@@ -361,6 +367,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Terminate"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTerminateEmpActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
               </AuxValues>
@@ -413,6 +422,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Order Status"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOrderStatusActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
               </AuxValues>
@@ -454,6 +466,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Checked in"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCheckedInToolActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
               </AuxValues>
@@ -469,10 +484,10 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="0">
-                        <Column editable="true" title="" type="java.lang.Object"/>
-                        <Column editable="true" title="" type="java.lang.Object"/>
-                        <Column editable="true" title="" type="java.lang.Object"/>
-                        <Column editable="true" title="" type="java.lang.Object"/>
+                        <Column editable="true" title="Employee Id" type="java.lang.Object"/>
+                        <Column editable="true" title="First Name" type="java.lang.Object"/>
+                        <Column editable="true" title="Last Name" type="java.lang.Object"/>
+                        <Column editable="true" title="Role" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>

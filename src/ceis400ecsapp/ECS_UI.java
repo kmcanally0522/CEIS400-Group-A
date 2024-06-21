@@ -4,6 +4,7 @@
  */
 package ceis400ecsapp;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -129,13 +130,18 @@ public class ECS_UI extends javax.swing.JFrame {
         });
 
         btnCheckIn.setText("Check in");
+        btnCheckIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckInActionPerformed(evt);
+            }
+        });
 
         tbEmpLists.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "", "", "", ""
+                "Tool Id", "Tool Name", "Tool Type", "Tool Status"
             }
         ));
         jScrollPane1.setViewportView(tbEmpLists);
@@ -176,8 +182,18 @@ public class ECS_UI extends javax.swing.JFrame {
         lblEmp.setText("Employee:");
 
         btnCreateEmp.setText("Create");
+        btnCreateEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateEmpActionPerformed(evt);
+            }
+        });
 
         btnTerminateEmp.setText("Terminate");
+        btnTerminateEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTerminateEmpActionPerformed(evt);
+            }
+        });
 
         btnViewEmp.setText("View");
         btnViewEmp.addActionListener(new java.awt.event.ActionListener() {
@@ -204,6 +220,11 @@ public class ECS_UI extends javax.swing.JFrame {
         });
 
         btnOrderStatus.setText("Order Status");
+        btnOrderStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderStatusActionPerformed(evt);
+            }
+        });
 
         lblTools.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblTools.setText("Tools:");
@@ -223,13 +244,18 @@ public class ECS_UI extends javax.swing.JFrame {
         });
 
         btnCheckedInTool.setText("Checked in");
+        btnCheckedInTool.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckedInToolActionPerformed(evt);
+            }
+        });
 
         tbInfoMGR.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "", "", "", ""
+                "Employee Id", "First Name", "Last Name", "Role"
             }
         ));
         jScrollPane2.setViewportView(tbInfoMGR);
@@ -321,23 +347,27 @@ public class ECS_UI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
-        // TODO add your handling code here:
+        // Not Working yet
+        JOptionPane.showMessageDialog(this, "Under Construction, try again later.", "Error!", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_btnCheckOutActionPerformed
 
     private void btnViewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Under Construction, try again later.", "Error!", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_btnViewOrderActionPerformed
 
     private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Under Construction, try again later.", "Error!", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_btnNewOrderActionPerformed
 
     private void btnLostToolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLostToolActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Under Construction, try again later.", "Error!", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_btnLostToolActionPerformed
 
     private void btnCheckOutToolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutToolActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Under Construction, try again later.", "Error!", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_btnCheckOutToolActionPerformed
 
     private void btnTechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTechActionPerformed
@@ -359,6 +389,31 @@ public class ECS_UI extends javax.swing.JFrame {
         // Show employee list
         display();
     }//GEN-LAST:event_btnViewEmpActionPerformed
+
+    private void btnCreateEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmpActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Error!", "Under Construction, try again later.", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_btnCreateEmpActionPerformed
+
+    private void btnTerminateEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminateEmpActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Under Construction, try again later.", "Error!", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_btnTerminateEmpActionPerformed
+
+    private void btnOrderStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderStatusActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Under Construction, try again later.", "Error!", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_btnOrderStatusActionPerformed
+
+    private void btnCheckedInToolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckedInToolActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Under Construction, try again later.", "Error!", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_btnCheckedInToolActionPerformed
+
+    private void btnCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckInActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Under Construction, try again later.", "Error!", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_btnCheckInActionPerformed
 
     /**
      * @param args the command line arguments
